@@ -1,7 +1,8 @@
-import BaseLayout from '../../components/layouts/BaseLayout'
+import BaseLayout from '@/components/layouts/BaseLayout'
 import { withRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import BasePage from '@/components/BasePage';
 
 const Portfolio = (props) => {
 
@@ -9,7 +10,7 @@ const Portfolio = (props) => {
 
     useEffect(() => {
         (async () => {
-        const { id } = props.router.query
+            const { id } = props.router.query
 
             const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
                 .catch((e) => {
@@ -25,10 +26,12 @@ const Portfolio = (props) => {
 
     return (
         <BaseLayout>
-            <h1>I am Portfolio page</h1>
-            <h2>{post.title}</h2>
-            <h2>BODY: {post.body}</h2>
-            <h2>ID: {post.id}</h2>
+            <BasePage>
+                <h1>I am Portfolio page</h1>
+                <h1>{post.title}</h1>
+                <p>BODY: {post.body}</p>
+                <p>ID: {post.id}</p>
+            </BasePage>
         </BaseLayout>
     )
 }

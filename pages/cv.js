@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import BaseLayout from '../components/layouts/BaseLayout'
+import BaseLayout from '@/components/layouts/BaseLayout'
+import BasePage from '@/components/BasePage';
 
 const CV = () => {
 
@@ -7,7 +8,9 @@ const CV = () => {
 
   return (
     <BaseLayout>
-     <h1>I am CV page</h1>
+     <BasePage>
+          <h1>I am Cv Page</h1>
+        </BasePage>
     </BaseLayout>
   )
 

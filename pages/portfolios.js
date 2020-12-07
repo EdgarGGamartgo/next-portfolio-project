@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import BaseLayout from '../components/layouts/BaseLayout'
 import axios from 'axios'
 import Link from 'next/link'
+import BasePage from '../components/BasePage';
 
 const Portfolios = () => {
 
@@ -10,13 +11,14 @@ const Portfolios = () => {
   useEffect(() => {
 
         (async () => {
-            const res = await axios.get('https://jsonplaceholder.typicode.com/posts')
+            const res = await axios.get('/api/v1/posts')
                                    .catch((e) => {
                                     console.log('e from axios catch: ', e.response)
                                     return []
                                    })
             console.log('res: ', res)
-            setPosts(res.data.slice(0, 10))
+            setPosts(res.data)
+            //setPosts(res.data.slice(0, 10))
             console.log('posts: ', posts)
         })()
         
@@ -35,10 +37,12 @@ const Portfolios = () => {
 
   return (
     <BaseLayout>
-     <h1>I am PORTFOLIOS page</h1>
-     <ul>
-         {renderPosts(posts)} 
-     </ul>
+     <BasePage>
+          <h1>I am Portfolio Page</h1>
+          <ul>
+            {renderPosts(posts)}
+          </ul>
+        </BasePage>
     </BaseLayout>
   )
 }

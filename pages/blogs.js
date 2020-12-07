@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import BaseLayout from '../components/layouts/BaseLayout'
+import BaseLayout from '@/components/layouts/BaseLayout'
+import BasePage from '@/components/BasePage';
 
 const Blogs = () => {
 
@@ -7,7 +8,9 @@ const Blogs = () => {
 
   return (
     <BaseLayout>
-     <h1>I am BLOGS page</h1>
+     <BasePage>
+          <h1>I am Blog Page</h1>
+        </BasePage>
     </BaseLayout>
   )
 
